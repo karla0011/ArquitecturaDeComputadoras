@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arquitectura de Computadoras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #B0B8C0;
+    }
+    .encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #004080;
+      color: white;
+      padding: 20px 40px;
+    }
+    .encabezado img {
+      height: 120px; 
+    }
+    .titulo-central {
+      text-align: center;
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+    .encabezado h1, .encabezado h2, .encabezado h3, .encabezado h4, .encabezado h5 {
+      margin: 5px 0;
+    }
+    .seccion {
+      display: none;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .seccion h2 {
+      font-size: 16pt;
+      color: #800000;
+      margin-bottom: 20px;
+    }
+    .seccion img {
+      width: 400px;
+      height: auto;
+      display: block;
+      margin: 10px auto;
+      border: 2px solid #333;
+    }
+     #practicas {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      background-color: #f5f5f5;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #practicas > div {
+      flex: 0 0 300px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #practicas > div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    #practicas a {
+      display: inline-block;
+      background-color: #0066cc;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    #practicas a:hover {
+      background-color: #004080;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="encabezado">
+    <img src="img/tecnm.png" alt="Logo Tecnológico Nacional de México">
+    <div class="titulo-central">
+      <h1>Tecnológico Nacional de México (TECNM)</h1>
+      <h2>Instituto Tecnológico de Saltillo</h2>
+      <h3>Arquitectura de Computadoras</h3>
+      <h4>Karla Isabel Monsivais Arevalo - 22050641</h4>
+      <h5>Ing. Miguel Maldonado Leza</h5>
+    </div>
+    <img src="img/its.png" alt="Logo Instituto Tecnológico de Saltillo">
+  </div>
+
+  <hr style="width: 80%; margin: 20px auto; border: 2px solid #000000;">
+
+<!-- menu -->
+  <table style="width: 80%; margin: 20px auto; border-collapse: collapse; text-align: center;">
+    <tr>
+      <td style="padding: 15px; background-color: #ffffff; cursor: pointer;" onclick="mostrar('unidad1')">Unidad 1</td>
+      <td style="padding: 15px; background-color: #ffffff; cursor: pointer;" onclick="mostrar('unidad2')">Unidad 2</td>
+      <td style="padding: 15px; background-color: #ffffff; cursor: pointer;" onclick="mostrar('unidad3')">Unidad 3</td>
+      <td style="padding: 15px; background-color: #ffffff; cursor: pointer;" onclick="mostrar('unidad4')">Unidad 4</td>
+      <td style="padding: 15px; background-color: #ffffff; cursor: pointer;" onclick="mostrar('practicas')">Prácticas</td>
+    </tr>
+  </table>
+
+  <!-- unidades -->
+  <div id="unidad1" class="seccion">
+  <h2>Unidad 1: Arquitecturas de Cómputo</h2>
+  <h3>1.1 Modelos de arquitecturas de cómputo</h3>
+    <li>Clásicas</li>
+    <li>Segmentadas</li>
+    <li>Multiprocesamiento</li>
+  <h3>1.2 Análisis de los componentes</h3>
+    <li>1.2.1 Arquitecturas</li>
+    <li>1.2.2 Unidad de control de procesamiento (CPU)
+        <li>Unidad Aritmética Lógica (ALU)</li>
+        <li>Unidad de Control (UC)</li>
+        <li>Memoria</li>
+    </li>
+  <h3>1.3 Memoria principal</h3>
+    <li>Memoria caché</li>
+  <h3>1.4 Módulos de entrada-salida</h3>
+    <li>E/S programada</li>
+    <li>E/S mediante interrupciones</li>
+  <h3>1.5 Acceso directo a memoria</h3>
+  <p>Explicación breve del concepto.</p>
+  <h3>1.6 Buses</h3>
+    <li>Tipos de buses</li>
+    <li>Estructura</li>
+    <li>Jerarquía</li>
+  <h3>1.7 Interrupciones</h3>
+</div>
+
+<div id="unidad2" class="seccion">
+  <h2>Unidad 2: Estructura y funcionamiento del procesador</h2>
+  <h3>2.1 Organización del procesador</h3>
+  <h3>2.2 Estructura de registros</h3>
+    <li>Registros visibles al usuario</li>
+    <li>Control</li>
+    <li>Estado</li>
+  <h3>2.3 Ciclo de la instrucción</h3>
+    <li>2.3.1 Ciclo Fetch–Decode–Execute</li>
+    <li>2.3.2 Segmentación</li>
+    <li>2.3.3 Conjunto de instrucciones</li>
+  <h3>2.4 Modos de direccionamiento</h3>
+  <h3>2.5 Casos de estudio</h3>
+</div>
+
+<div id="unidad3" class="seccion">
+  <h2>Unidad 3: Selección de componentes para ensamble de equipo de cómputo</h2>
+  <h3>3.1 Chip set</h3>
+    <li>3.1.1 Unidad central de procesamiento (CPU)</li>
+    <li>3.1.2 Controlador del bus</li>
+    <li>3.1.3 Puertas de entrada/salida (E/S)</li>
+    <li>3.1.4 Controlador de interrupciones</li>
+    <li>3.1.5 Controlador de acceso directo a memoria (DMA)</li>
+    <li>3.1.6 Circuitos de temporización</li>
+    <li>3.1.7 Circuitos de control</li>
+    <li>3.1.8 Controladores de video</li>
+  <h3>3.2 Aplicaciones</h3>
+    <li>3.2.1 Entrada/Salida</li>
+    <li>3.2.2 Almacenamiento</li>
+    <li>3.2.3 Fuentes de alimentación</li>
+  <h3>3.3 Ambientes de servicio</h3>
+    <li>3.3.1 Negocios</li>
+    <li>3.3.2 Industria</li>
+    <li>3.3.3 Comercio electrónico</li>
+</div>
+
+<div id="unidad4" class="seccion">
+  <h2>Unidad 4: Procesamiento paralelo</h2>
+  <h3>4.1 Aspectos básicos de la computación paralela</h3>
+  <h3>4.2 Tipos de computación paralela</h3>
+    <li>4.2.1 Clasificación</li>
+    <li>4.2.2 Arquitectura de computadoras secuenciales</li>
+    <li>4.2.3 Organización de direcciones de memoria</li>
+  <h3>4.3 Sistemas de memoria (compartida)</h3>
+    <li>Multiprocesadores</li>
+    <li>4.3.1 Redes de interconexión dinámica (indirecta)</li>
+    <li>Medio compartido</li>
+    <li>Conmutadas</li>
+  <h3>4.4 Sistemas de memoria distribuida</h3>
+    <li>Multicomputadores</li>
+    <li>4.4.1 Redes de interconexión estáticas</li>
+  <h3>4.5 Casos para estudio</h3>
+</div>
+
+
+ <!-- practicas -->
+  <div id="practicas" class="seccion">
+    <!-- Práctica 1 -->
+    <div>
+      <img src="img/practica1.jpg" alt="Práctica 1" style="width: 100%; height: 180px; object-fit: cover;">
+      <h3>Práctica 1</h3>
+      <p>Ensamble de componentes.</p>
+      <a href="practica1.html">Visitar</a>
+    </div>
+
+    <!-- Práctica 2 -->
+    <div>
+      <img src="img/practica2.jpg" alt="Práctica 2" style="width: 100%; height: 180px; object-fit: cover;">
+      <h3>Práctica 2</h3>
+      <p>Estructura y funcionamiento del procesador.</p>
+      <a href="practica2.html">Visitar</a>
+    </div>
+
+    <!-- Práctica 3 -->
+    <div>
+      <img src="img/practica3.jpg" alt="Práctica 3" style="width: 100%; height: 180px; object-fit: cover;">
+      <h3>Práctica 3</h3>
+      <p>Selección de componentes para ensamble de equipo de cómputo.</p>
+      <a href="practica3.html">Visitar</a>
+    </div>
+
+    <!-- Práctica 4 -->
+    <div>
+      <img src="img/practica4.jpg" alt="Práctica 4" style="width: 100%; height: 180px; object-fit: cover;">
+      <h3>Práctica 4</h3>
+      <p>Ensamble y verificación de equipo de cómputo.</p>
+      <a href="practica4.html">Visitar</a>
+    </div>
+  </div>
+
+<div id="inicio" style="text-align:center; padding:30px;">
+  <img src="img/arquitectura-computadoras-1.jpg" 
+       alt="Imagen inicial" 
+       style="width:70%; max-width:800px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.3);">
+</div>
+
+  <script>
+    function mostrar(id) {
+      const secciones = document.querySelectorAll('.seccion, #inicio');
+      secciones.forEach(sec => sec.style.display = 'none');
+      const seleccionada = document.getElementById(id);
+      if (id === 'practicas') {
+        seleccionada.style.display = 'flex';
+      } else {
+        seleccionada.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
+
