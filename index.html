@@ -114,84 +114,187 @@
   <!-- unidades -->
   <div id="unidad1" class="seccion">
   <h2>Unidad 1: Arquitecturas de Cómputo</h2>
+
   <h3>1.1 Modelos de arquitecturas de cómputo</h3>
-    <li>Clásicas</li>
-    <li>Segmentadas</li>
-    <li>Multiprocesamiento</li>
+  <p>Existen diferentes modelos de arquitectura que definen cómo se organiza y procesa la información en una computadora:</p>
+    <li><b>Clásicas:</b> Modelo Von Neumann y Harvard. El primero usa un único bus para datos e instrucciones, mientras que Harvard separa ambos.</li>
+    <img src="img/VonNewman.jpg" alt="VonNewman">
+    <li><b>Segmentadas:</b> Utilizan <i>pipeline</i> para dividir el procesamiento en etapas, aumentando la velocidad.</li>
+    <img src="img/Segmentada.jpg" alt="Segmentada">
+    <li><b>Multiprocesamiento:</b> Emplean varios procesadores trabajando en paralelo para mejorar rendimiento.</li>
+    <img src="img/MultiProcesamiento.jpg" alt="Multiprocesamiento">
+
   <h3>1.2 Análisis de los componentes</h3>
-    <li>1.2.1 Arquitecturas</li>
-    <li>1.2.2 Unidad de control de procesamiento (CPU)
-        <li>Unidad Aritmética Lógica (ALU)</li>
-        <li>Unidad de Control (UC)</li>
-        <li>Memoria</li>
-    </li>
+  <p>Los principales componentes de una computadora son:</p>
+    <li><b>CPU:</b> Contiene la <b>ALU</b> (Unidad Aritmética Lógica), la <b>UC</b> (Unidad de Control) y los registros.</li>
+    <li><b>Memoria:</b> Almacena datos e instrucciones, incluye memoria principal y caché.</li>
+    <li><b>Entrada/Salida:</b> Permite la comunicación con periféricos mediante E/S programada, interrupciones o DMA.</li>
+    <li><b>Buses:</b> Conectan los componentes internos, existen buses de datos, direcciones y control.</li>
+  <img src="img/componentes.jpg" alt="Componentes de la CPU">
+
   <h3>1.3 Memoria principal</h3>
-    <li>Memoria caché</li>
+  <p>La memoria principal (RAM) almacena temporalmente datos e instrucciones en ejecución. La memoria caché acelera el acceso a información frecuente.</p>
+  <img src="img/jerarquiaDeMemoria.png" alt="Jerarquía de memoria">
+
   <h3>1.4 Módulos de entrada-salida</h3>
-    <li>E/S programada</li>
-    <li>E/S mediante interrupciones</li>
-  <h3>1.5 Acceso directo a memoria</h3>
-  <p>Explicación breve del concepto.</p>
+  <p>Existen diferentes métodos de comunicación entre CPU y periféricos:</p>
+    <li><b>E/S programada:</b> El procesador controla directamente la transferencia.</li>
+    <li><b>E/S mediante interrupciones:</b> El dispositivo avisa al procesador cuando necesita atención.</li>
+    <li><b>DMA:</b> El acceso directo a memoria permite transferencias sin intervención constante del CPU.</li>
+  <img src="img/EsquemaEntradaSalida.png" alt="Esquema de entrada/salida">
+
+  <h3>1.5 Acceso directo a memoria (DMA)</h3>
+  <p>El DMA permite que dispositivos transfieran datos directamente a la memoria sin pasar por el CPU, liberando recursos y aumentando eficiencia.</p>
+  <img src="img/DiagramaDMA.png" alt="Diagrama DMA">
+
   <h3>1.6 Buses</h3>
-    <li>Tipos de buses</li>
-    <li>Estructura</li>
-    <li>Jerarquía</li>
+  <p>Los buses son canales de comunicación internos:</p>
+    <li><b>Datos:</b> Transportan información.</li>
+    <li><b>Direcciones:</b> Indican la ubicación en memoria.</li>
+    <li><b>Control:</b> Coordinan las operaciones.</li>
+  <img src="img/DiagramaBuses.png" alt="Diagrama de buses">
+
   <h3>1.7 Interrupciones</h3>
+  <p>Las interrupciones permiten que el procesador atienda eventos externos o internos, deteniendo temporalmente la ejecución para responder al dispositivo.</p>
+  <img src="img/Interrupciones.png" alt="Diagrama de interrupciones">
 </div>
+
 
 <div id="unidad2" class="seccion">
   <h2>Unidad 2: Estructura y funcionamiento del procesador</h2>
+
   <h3>2.1 Organización del procesador</h3>
+  <p>El procesador es el corazón del sistema. Se organiza en diferentes bloques funcionales: la Unidad de Control (UC), la Unidad Aritmética Lógica (ALU),</p>
+  </p> los registros y las interfaces con memoria y periféricos. Esta organización permite ejecutar instrucciones de manera ordenada y eficiente.</p>
+  <img src="img/OrganizacionDelProcesador.jpg" alt="Organización del procesador">
+
   <h3>2.2 Estructura de registros</h3>
-    <li>Registros visibles al usuario</li>
-    <li>Control</li>
-    <li>Estado</li>
+  <p>Los registros son pequeñas memorias internas del procesador que permiten almacenar datos temporales y direcciones. Se clasifican en:</p>
+    <li><b>Registros visibles al usuario:</b> usados directamente en programación (acumuladores, registros de propósito general).</li>
+    <li><b>Registros de control:</b> gestionan el flujo de ejecución (contador de programa, puntero de pila).</li>
+    <li><b>Registros de estado:</b> guardan banderas que indican resultados de operaciones (cero, negativo, desbordamiento).</li>
+  <img src="img/RegistrosCpu.jpg" alt="Tipos de registros en CPU">
+
   <h3>2.3 Ciclo de la instrucción</h3>
-    <li>2.3.1 Ciclo Fetch–Decode–Execute</li>
-    <li>2.3.2 Segmentación</li>
-    <li>2.3.3 Conjunto de instrucciones</li>
+  <p>El ciclo de instrucción describe cómo el procesador ejecuta cada instrucción:</p>
+    <li><b>Fetch:</b> se obtiene la instrucción desde memoria.</li>
+    <li><b>Decode:</b> la UC interpreta la instrucción.</li>
+    <li><b>Execute:</b> la ALU o el módulo correspondiente realiza la operación.</li>
+  <p>En procesadores modernos se utiliza <b>segmentación (pipeline)</b>, que divide el ciclo en etapas paralelas para aumentar el rendimiento.</p>
+  <img src="img/CicloDeInstruccionn.png" alt="Ciclo de instrucción">
+
   <h3>2.4 Modos de direccionamiento</h3>
+  <p>Los modos de direccionamiento indican cómo se localizan los datos en memoria. Algunos ejemplos son:</p>
+    <li><b>Directo:</b> la instrucción contiene la dirección exacta.</li>
+    <li><b>Indirecto:</b> la instrucción apunta a un registro que contiene la dirección.</li>
+    <li><b>Inmediato:</b> el valor está incluido en la instrucción.</li>
+    <li><b>Indexado:</b> combina un registro base con un desplazamiento.</li>
+  <img src="img/ModosDeDireccionamiento.png" alt="Modos de direccionamiento">
+
   <h3>2.5 Casos de estudio</h3>
+  <p>Ejemplos de procesadores reales:</p>
+    <li><b>Intel x86:</b> arquitectura CISC con gran cantidad de instrucciones.</li>
+    <li><b>ARM:</b> arquitectura RISC, optimizada para dispositivos móviles por su bajo consumo.</li>
+    <li><b>MIPS:</b> arquitectura RISC utilizada en sistemas embebidos y educativos.</li>
+  <img src="img/EjemplosProcesadores.JPG" alt="Ejemplos de procesadores">
 </div>
+
 
 <div id="unidad3" class="seccion">
   <h2>Unidad 3: Selección de componentes para ensamble de equipo de cómputo</h2>
+
   <h3>3.1 Chip set</h3>
-    <li>3.1.1 Unidad central de procesamiento (CPU)</li>
-    <li>3.1.2 Controlador del bus</li>
-    <li>3.1.3 Puertas de entrada/salida (E/S)</li>
-    <li>3.1.4 Controlador de interrupciones</li>
-    <li>3.1.5 Controlador de acceso directo a memoria (DMA)</li>
-    <li>3.1.6 Circuitos de temporización</li>
-    <li>3.1.7 Circuitos de control</li>
-    <li>3.1.8 Controladores de video</li>
+  <p>El chipset es un conjunto de circuitos integrados que permiten la comunicación entre el procesador, la memoria y los dispositivos periféricos. Es esencial porque coordina cómo interactúan todos los elementos del sistema, asegurando que trabajen de manera eficiente y sincronizada.</p>
+
+  <h4>3.1.1 Unidad central de procesamiento (CPU)</h4>
+  <p>La CPU es el núcleo del sistema. Se encarga de interpretar y ejecutar instrucciones, realizar cálculos y coordinar el flujo de datos. Está compuesta por la ALU (Unidad Aritmética Lógica), que realiza operaciones matemáticas y lógicas; la Unidad de Control, que dirige el funcionamiento del procesador; y los registros, que almacenan datos temporales. Sin la CPU, el sistema no podría procesar información.</p>
+
+  <h4>3.1.2 Controlador del bus</h4>
+  <p>El controlador del bus regula el tráfico de información entre CPU, memoria y periféricos. Funciona como un puente que organiza el paso de datos, evitando conflictos y asegurando que cada componente reciba la información correcta. Es clave para que el sistema pueda comunicarse de manera ordenada.</p>
+
+  <h4>3.1.3 Puertas de entrada/salida (E/S)</h4>
+  <p>Las puertas de E/S son interfaces que permiten la comunicación entre la computadora y el mundo exterior. A través de ellas se conectan periféricos como teclado, ratón, impresora y monitor. Estas puertas convierten las señales externas en datos que el sistema puede procesar y viceversa.</p>
+
+  <h4>3.1.4 Controlador de interrupciones</h4>
+  <p>Este controlador administra las señales que requieren atención inmediata del procesador. Por ejemplo, cuando presionamos una tecla, se genera una interrupción que detiene momentáneamente la ejecución normal para atender el evento. Esto garantiza que el sistema responda rápidamente a las acciones del usuario o a eventos de hardware.</p>
+
+  <h4>3.1.5 Controlador de acceso directo a memoria (DMA)</h4>
+  <p>El DMA permite que ciertos dispositivos transfieran datos directamente a la memoria sin necesidad de que el CPU intervenga en cada paso. Esto libera al procesador de tareas repetitivas y mejora la eficiencia del sistema, especialmente en operaciones de gran volumen de datos como transferencias de disco.</p>
+
+  <h4>3.1.6 Circuitos de temporización</h4>
+  <p>Los circuitos de temporización generan señales de reloj que sincronizan todas las operaciones internas. Cada instrucción y cada transferencia de datos ocurre en un pulso determinado, lo que asegura que los procesos se ejecuten en el orden correcto y sin errores.</p>
+
+  <h4>3.1.7 Circuitos de control</h4>
+  <p>Estos circuitos regulan y coordinan las funciones de los diferentes módulos del chipset. Actúan como un sistema de supervisión que asegura que cada componente trabaje en armonía con los demás, evitando fallos y garantizando estabilidad.</p>
+
+  <h4>3.1.8 Controladores de video</h4>
+  <p>Los controladores de video procesan la información gráfica y la envían al monitor. Son responsables de la calidad de la imagen, la resolución y la velocidad de actualización. Sin ellos, no sería posible visualizar correctamente los resultados de las operaciones del sistema.</p>
+  <img src="img/DiagramaChipset.jpg" alt="Diagrama de chipset">
+
+  <!-- 3.2 Aplicaciones -->
   <h3>3.2 Aplicaciones</h3>
-    <li>3.2.1 Entrada/Salida</li>
-    <li>3.2.2 Almacenamiento</li>
-    <li>3.2.3 Fuentes de alimentación</li>
+  <p>Los componentes seleccionados para un equipo de cómputo deben adaptarse a las necesidades específicas de uso. Algunas aplicaciones comunes son:</p>
+
+  <h4>3.2.1 Entrada/Salida</h4>
+  <p>Incluye dispositivos como teclado, ratón, impresora y monitor. Estos permiten la interacción entre el usuario y la computadora, convirtiendo acciones físicas en datos digitales y mostrando resultados en pantalla.</p>
+
+  <h4>3.2.2 Almacenamiento</h4>
+  <p>Se refiere a discos duros, unidades SSD y memorias externas. Son esenciales para guardar programas, documentos y datos de manera permanente, asegurando que la información esté disponible cuando se necesite. La velocidad y capacidad de almacenamiento influyen directamente en el rendimiento del sistema.</p>
+
+  <h4>3.2.3 Fuentes de alimentación</h4>
+  <p>Proveen energía eléctrica estable y suficiente para todos los componentes del sistema. Una fuente adecuada evita fallos, protege el hardware y asegura un funcionamiento continuo. La elección correcta depende del consumo de energía de los componentes instalados.</p>
+  <img src="img/AplicacionesComponentes.png" alt="Aplicaciones de componentes">
+
+  <!-- 3.3 Ambientes de servicio -->
   <h3>3.3 Ambientes de servicio</h3>
-    <li>3.3.1 Negocios</li>
-    <li>3.3.2 Industria</li>
-    <li>3.3.3 Comercio electrónico</li>
+  <p>La selección de componentes también depende del entorno en el que se utilizará el equipo. Algunos ejemplos son:</p>
+
+  <h4>3.3.1 Negocios</h4>
+  <p>Requieren equipos confiables para tareas administrativas, ofimática y gestión de datos. La prioridad es la estabilidad, seguridad y facilidad de mantenimiento. Generalmente se utilizan computadoras de gama media con buena capacidad de almacenamiento y conectividad.</p>
+
+  <h4>3.3.2 Industria</h4>
+  <p>Necesitan computadoras robustas para control de procesos, automatización y sistemas de producción. Se busca resistencia, rendimiento continuo y capacidad de operar en ambientes exigentes. En muchos casos se utilizan equipos especializados con sistemas de refrigeración avanzados.</p>
+
+  <h4>3.3.3 Comercio electrónico</h4>
+  <p>Utilizan servidores optimizados para páginas web, bases de datos y seguridad en transacciones. La prioridad es la velocidad de respuesta y la protección de la información. Estos equipos requieren procesadores potentes, gran capacidad de memoria y sistemas redundantes para garantizar disponibilidad.</p>
+  <img src="img/ambientesdeServicio.jpg" alt="Ambientes de servicio">
 </div>
+
+
 
 <div id="unidad4" class="seccion">
   <h2>Unidad 4: Procesamiento paralelo</h2>
+
   <h3>4.1 Aspectos básicos de la computación paralela</h3>
+  <p>La computación paralela consiste en dividir un problema en múltiples tareas que se ejecutan simultáneamente en diferentes procesadores o núcleos. Esto permite acelerar el procesamiento y aprovechar mejor los recursos del sistema. Es fundamental en aplicaciones científicas, simulaciones, inteligencia artificial y grandes volúmenes de datos.</p>
+
   <h3>4.2 Tipos de computación paralela</h3>
-    <li>4.2.1 Clasificación</li>
-    <li>4.2.2 Arquitectura de computadoras secuenciales</li>
-    <li>4.2.3 Organización de direcciones de memoria</li>
-  <h3>4.3 Sistemas de memoria (compartida)</h3>
-    <li>Multiprocesadores</li>
-    <li>4.3.1 Redes de interconexión dinámica (indirecta)</li>
-    <li>Medio compartido</li>
-    <li>Conmutadas</li>
+  <p>Existen diferentes formas de organizar la computación paralela según la arquitectura y el tipo de tareas:</p>
+    <li><b>4.2.1 Clasificación:</b> Se divide en paralelismo a nivel de datos (procesar grandes conjuntos en paralelo), paralelismo a nivel de tareas (ejecutar diferentes funciones simultáneamente) y paralelismo híbrido.</li>
+    <li><b>4.2.2 Arquitectura de computadoras secuenciales:</b> Son sistemas tradicionales que ejecutan instrucciones una tras otra. Aunque no son paralelos, sirven como base para entender cómo se optimiza el rendimiento al pasar a arquitecturas paralelas.</li>
+    <li><b>4.2.3 Organización de direcciones de memoria:</b> En sistemas paralelos, la memoria puede organizarse de forma compartida o distribuida, lo que afecta la velocidad y la forma en que los procesadores acceden a los datos.</li>
+
+  <h3>4.3 Sistemas de memoria compartida</h3>
+  <p>En este modelo, varios procesadores acceden a una misma memoria central. Es más sencillo de programar porque todos los núcleos ven los mismos datos, pero puede generar problemas de sincronización y cuellos de botella.</p>
+    <li><b>Multiprocesadores:</b> Son sistemas con varios procesadores que comparten memoria y trabajan coordinadamente.</li>
+    <li><b>4.3.1 Redes de interconexión dinámica (indirecta):</b> Utilizan conmutadores o redes internas que permiten que los procesadores se comuniquen con la memoria de manera flexible.</li>
+    <li><b>Medio compartido:</b> Todos los procesadores acceden a un mismo bus de memoria, lo que puede limitar el rendimiento si muchos intentan acceder al mismo tiempo.</li>
+    <li><b>Conmutadas:</b> Se emplean redes de conmutación que permiten mayor velocidad y reducen conflictos en el acceso a memoria.</li>
+
   <h3>4.4 Sistemas de memoria distribuida</h3>
-    <li>Multicomputadores</li>
-    <li>4.4.1 Redes de interconexión estáticas</li>
+  <p>En este modelo, cada procesador tiene su propia memoria local. Los datos se distribuyen entre los nodos y la comunicación se realiza mediante mensajes. Es más escalable que la memoria compartida, pero requiere técnicas de programación más complejas.</p>
+    <li><b>Multicomputadores:</b> Son sistemas formados por múltiples computadoras interconectadas que trabajan en conjunto.</li>
+    <li><b>4.4.1 Redes de interconexión estáticas:</b> Utilizan topologías fijas (como malla, hipercubo o anillo) para conectar los nodos, lo que determina la eficiencia de la comunicación.</li>
+
   <h3>4.5 Casos para estudio</h3>
+  <p>Algunos ejemplos prácticos de arquitecturas paralelas incluyen:</p>
+    <li><b>Supercomputadoras:</b> Utilizan miles de procesadores trabajando en paralelo para cálculos científicos y simulaciones complejas.</li>
+    <li><b>Clusters:</b> Conjunto de computadoras conectadas que trabajan como un solo sistema, muy usado en investigación y servidores.</li>
+    <li><b>Procesadores multinúcleo:</b> Los CPUs modernos incluyen varios núcleos que permiten ejecutar múltiples hilos de manera simultánea.</li>
+    <li><b>GPU (Unidades de Procesamiento Gráfico):</b> Diseñadas para manejar miles de operaciones en paralelo, son esenciales en gráficos, inteligencia artificial y minería de datos.</li>
+  <img src="img/ProcesamientoParalelo.png" alt="Ejemplo de procesamiento paralelo">
 </div>
+
 
 
  <!-- practicas -->
